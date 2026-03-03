@@ -44,10 +44,10 @@ Jenkinsfile                    # Pipeline de CI/CD declarativo
 
 ```
 
-# 🚀 Cómo ver el Reporte Allure en local
-* **Ejecuta la suite de pruebas desde la clase TestRunner.
+## 🚀 Cómo ver el Reporte Allure en local
 
-* **Lanza el servidor web de reportería mediante Maven:
+1. Ejecuta la suite de pruebas desde la clase `TestRunner`.
+2. Lanza el servidor web de reportería mediante Maven:
 
-Bash
-mvn allure:serve
+   ```bash
+   mvn allure:serve
