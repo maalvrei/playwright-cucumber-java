@@ -4,7 +4,6 @@ pipeline {
     tools {
         // Asume que en tu servidor Jenkins tienes configurado Maven con el nombre 'Maven3'
         maven 'Maven3'
-        jdk 'Java21' // Asume que tienes Java 21 configurado
     }
 
     stages {
