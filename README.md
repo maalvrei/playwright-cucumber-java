@@ -42,6 +42,8 @@ src/
            └── allure.properties # Configuración de reportería
 Jenkinsfile                    # Pipeline de CI/CD declarativo
 
+```
+
 # 🚀 Cómo ver el Reporte Allure en local
 Ejecuta la suite de pruebas desde la clase TestRunner.
 
