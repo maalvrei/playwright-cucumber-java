@@ -70,9 +70,13 @@ Si estás evaluando el proyecto desde una distribución de Linux limpia, ejecuta
    ```
 
 ### 🪟 Entorno Windows
-Si estás en Windows, asumiendo que ya tienes instalados y configurados **Java 21**, **Maven** y **Git** en tus variables de entorno:
+Para ejecutar el proyecto en Windows, necesitas tener instalados y configurados en tus variables de entorno (`PATH`): **Java 21**, **Git** y **Maven**.
 
-1. Abre tu terminal (PowerShell o CMD) y clona el repositorio:
+> ⚠️ **Nota sobre Maven:** Si al intentar ejecutar los pasos de abajo obtienes el error `"mvn" no se reconoce como un comando interno o externo`, significa que no tienes Maven instalado a nivel global. Para solucionarlo: descárgalo desde [la web oficial de Apache Maven](https://maven.apache.org/download.cgi), descomprímelo en tu disco duro y añade la ruta de su carpeta `bin` a las variables de entorno de tu sistema (`PATH`).
+
+Una vez tengas las herramientas listas, abre tu terminal (PowerShell o CMD) y sigue estos pasos:
+
+1. Clona el repositorio y entra al directorio:
    ```bash
    git clone [https://github.com/maalvrei/playwright-cucumber-java.git](https://github.com/maalvrei/playwright-cucumber-java.git)
    cd playwright-cucumber-java
