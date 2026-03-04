@@ -21,7 +21,7 @@ public class LoginSteps {
     @Before
     public void setUp() {
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(500));
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setSlowMo(500));
         page = browser.newPage();
         loginPage = new LoginPage(page); // Instanciamos nuestro POM
     }

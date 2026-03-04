@@ -31,7 +31,7 @@ public class HybridSteps {
 
     @Cuando("intento hacer login en SauceDemo con ese usuario y la contraseña {string}")
     public void intentoLoginConUsuarioApi(String password) {
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(500));
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setSlowMo(500));
         page = browser.newPage();
         loginPage = new LoginPage(page);
 
