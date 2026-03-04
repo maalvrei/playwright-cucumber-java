@@ -9,7 +9,7 @@ Este repositorio contiene un framework de automatización de pruebas híbrido, d
 * **Framework BDD:** Cucumber (Alineado v7.15.0)
 * **Datos Dinámicos:** Datafaker (Data-Driven Testing)
 * **Reportería Visual:** Allure Report
-* **CI/CD Pipeline:** Jenkins
+* **CI/CD Pipeline:** Jenkins (Dockerizado)
 * **Motor & Gestor:** JUnit 5 / Maven / Google Gson
 
 ## 📐 Arquitectura y Patrones de Diseño
@@ -23,9 +23,9 @@ El proyecto está estructurado para ser altamente escalable y mantenible:
 
 ## 🧪 Tipos de Pruebas Implementadas
 
-1.  🌐 **Pruebas UI (Frontend):** * Navegación automatizada y validación de elementos en la web de pruebas *SauceDemo*.
-2.  ⚙️ **Pruebas API (Backend):** * Peticiones HTTP (GET/POST) a *JSONPlaceholder* con inyección de cargas útiles (payloads) generadas de forma aleatoria.
-3.  🧬 **Pruebas Híbridas (E2E Avanzado):** * Extracción de datos reales desde la API (Parseo de JSON) e inyección de esos datos en la interfaz web durante la misma ejecución para realizar *Negative Testing*.
+1. 🌐 **Pruebas UI (Frontend):** Navegación automatizada y validación de elementos en la web de pruebas *SauceDemo*.
+2. ⚙️ **Pruebas API (Backend):** Peticiones HTTP (GET/POST) a *JSONPlaceholder* con inyección de cargas útiles (payloads) generadas de forma aleatoria.
+3. 🧬 **Pruebas Híbridas (E2E Avanzado):** Extracción de datos reales desde la API (Parseo de JSON) e inyección de esos datos en la interfaz web durante la misma ejecución para realizar *Negative Testing*.
 
 ## 📁 Estructura del Proyecto
 
@@ -34,20 +34,63 @@ src/
  ├── main/
  └── test/
       ├── java/com/automation/testing/
-      │    ├── pages/          # Clases POM (Ej: LoginPage.java)
-      │    ├── runners/        # Ejecutor de la suite y conexión con Allure
-      │    └── steps/          # Definición de pasos BDD
+      │    ├── pages/            # Clases POM (Ej: LoginPage.java)
+      │    ├── runners/          # Ejecutor de la suite y conexión con Allure
+      │    └── steps/            # Definición de pasos BDD
       └── resources/
-           ├── features/       # Archivos de pruebas en Gherkin (.feature)
+           ├── features/         # Archivos de pruebas en Gherkin (.feature)
            └── allure.properties # Configuración de reportería
-Jenkinsfile                    # Pipeline de CI/CD declarativo
-
+Jenkinsfile                      # Pipeline de CI/CD declarativo
 ```
 
-## 🚀 Cómo ver el Reporte Allure en local
+## 💻 Cómo ejecutar el proyecto localmente (Para Evaluadores)
 
-1. Ejecuta la suite de pruebas desde la clase `TestRunner`.
-2. Lanza el servidor web de reportería mediante Maven:
+Para facilitar la revisión técnica, a continuación se detallan los pasos exactos para levantar y ejecutar la suite de pruebas desde cero. Las pruebas están configuradas para ejecutarse en modo `Headless` (invisible) para asegurar su compatibilidad con cualquier entorno y herramientas CI/CD.
 
+### 🐧 Entorno Ubuntu / Linux (Limpio)
+Si estás evaluando el proyecto desde una distribución de Linux limpia, ejecuta estos comandos en tu terminal:
+
+1. Instala las herramientas base (Git, Java 21 y Maven):
    ```bash
-   mvn allure:serve
+   sudo apt update
+   sudo apt install git maven openjdk-21-jdk -y
+   ```
+2. Clona el repositorio y entra al directorio:
+   ```bash
+   git clone [https://github.com/maalvrei/playwright-cucumber-java.git](https://github.com/maalvrei/playwright-cucumber-java.git)
+   cd playwright-cucumber-java
+   ```
+3. Descarga los binarios de los navegadores de Playwright y sus dependencias del sistema operativo:
+   ```bash
+   mvn exec:java -e -D"exec.mainClass"="com.microsoft.playwright.CLI" -D"exec.args"="install --with-deps"
+   ```
+4. Ejecuta la suite de pruebas:
+   ```bash
+   mvn test
+   ```
+
+### 🪟 Entorno Windows
+Si estás en Windows, asumiendo que ya tienes instalados y configurados **Java 21**, **Maven** y **Git** en tus variables de entorno:
+
+1. Abre tu terminal (PowerShell o CMD) y clona el repositorio:
+   ```bash
+   git clone [https://github.com/maalvrei/playwright-cucumber-java.git](https://github.com/maalvrei/playwright-cucumber-java.git)
+   cd playwright-cucumber-java
+   ```
+2. Instala los binarios de los navegadores de Playwright:
+   ```bash
+   mvn exec:java -e -D"exec.mainClass"="com.microsoft.playwright.CLI" -D"exec.args"="install"
+   ```
+3. Ejecuta las pruebas:
+   ```bash
+   mvn test
+   ```
+
+## 📊 Cómo ver el Reporte Allure en local
+
+Una vez finalizada la ejecución de las pruebas (`mvn test`), puedes generar y abrir el reporte visual interactivo ejecutando:
+
+```bash
+mvn allure:serve
+```
+Esto levantará un servidor local temporal y abrirá automáticamente el informe de resultados en tu navegador predeterminado.
