@@ -8,6 +8,7 @@ pipeline {
     environment {
         // Le pedimos a Jenkins la ruta exacta de Maven para evitar que Linux se pierda
         MVN_HOME = tool('Maven3')
+        PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = 'true'
     }
 
     stages {
