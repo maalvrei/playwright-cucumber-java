@@ -57,7 +57,7 @@ Si estás evaluando el proyecto desde una distribución de Linux limpia, ejecuta
    ```
 2. Clona el repositorio y entra al directorio:
    ```bash
-   git clone [https://github.com/maalvrei/playwright-cucumber-java.git](https://github.com/maalvrei/playwright-cucumber-java.git)
+   git clone https://github.com/maalvrei/playwright-cucumber-java.git
    cd playwright-cucumber-java
    ```
 3. Descarga los binarios de los navegadores de Playwright y sus dependencias del sistema operativo:
@@ -78,7 +78,7 @@ Una vez tengas las herramientas listas, abre tu terminal (PowerShell o CMD) y si
 
 1. Clona el repositorio y entra al directorio:
    ```bash
-   git clone [https://github.com/maalvrei/playwright-cucumber-java.git](https://github.com/maalvrei/playwright-cucumber-java.git)
+   git clone https://github.com/maalvrei/playwright-cucumber-java.git
    cd playwright-cucumber-java
    ```
 2. Instala los binarios de los navegadores de Playwright:
