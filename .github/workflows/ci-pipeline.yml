@@ -1,0 +1,47 @@
+name: CI Automation Pipeline
+
+# ¿Cuándo se ejecuta esto? Cada vez que hagas un Push a la rama master o main
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  test-and-report:
+    # GitHub nos presta un servidor Ubuntu nuevecito
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Descargar el código
+        uses: actions/checkout@v4
+
+      - name: ☕ Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven' # Guarda las librerías en caché para ir más rápido
+
+      - name: 📦 Instalar Dependencias de Maven
+        run: mvn clean install -DskipTests
+
+      - name: 🎭 Instalar Navegadores de Playwright
+        # En Ubuntu de GitHub sí podemos usar --with-deps sin problema
+        run: mvn exec:java -e -D"exec.mainClass"="com.microsoft.playwright.CLI" -D"exec.args"="install --with-deps"
+
+      - name: 🚀 Ejecutar Pruebas E2E y API
+        run: mvn test
+        env:
+          # Mantenemos esto por si acaso, como buena práctica
+          PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS: true
+        # continue-on-error evita que el pipeline explote y se pare si un test falla
+        continue-on-error: true
+
+      - name: 📊 Guardar Resultados de Allure
+        uses: actions/upload-artifact@v4
+        if: always() # Se ejecuta siempre, aunque los tests fallen
+        with:
+          name: allure-results
+          path: target/allure-results
+          retention-days: 20
