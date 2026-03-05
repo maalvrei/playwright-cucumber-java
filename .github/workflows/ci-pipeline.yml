@@ -1,12 +1,17 @@
 name: CI Automation Pipeline
 
+# 1. OPTIMIZACIÓN DE TRIGGERS: Solo ejecutamos si hay cambios en el código real
 on:
   push:
     branches: [ "master", "main" ]
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
   pull_request:
     branches: [ "master", "main" ]
+    paths-ignore:
+      - 'README.md'
 
-# Permisos para que el bot pueda crear la rama "gh-pages" y subir la web
 permissions:
   contents: write
 
@@ -28,7 +33,17 @@ jobs:
       - name: 📦 Instalar Dependencias de Maven
         run: mvn clean install -DskipTests
 
-      - name: 🎭 Instalar Navegadores de Playwright
+      # 2. OPTIMIZACIÓN DE TIEMPO: Guardamos los navegadores pesados en un "baúl" (Caché)
+      - name: 🗄️ Recuperar Caché de Navegadores Playwright
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pom.xml') }}
+
+      - name: 🎭 Instalar Navegadores de Playwright (y dependencias OS)
+        # Playwright es inteligente: si recuperó la caché en el paso anterior,
+        # omitirá la descarga de 300MB y solo instalará las librerías ligeras de Ubuntu.
         run: mvn exec:java -e -D"exec.mainClass"="com.microsoft.playwright.CLI" -D"exec.args"="install --with-deps"
 
       - name: 🚀 Ejecutar Pruebas E2E y API
@@ -36,8 +51,6 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS: 'true'
         continue-on-error: true
-
-      # === MAGIA DE GITHUB PAGES (REPORTE PÚBLICO) ===
 
       - name: 📂 Obtener historial previo de Allure
         uses: actions/checkout@v4
