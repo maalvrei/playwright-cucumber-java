@@ -1,6 +1,10 @@
 # 🚀 Framework de Automatización E2E y API (Playwright + Java + Cucumber)
 
+[![Allure Report](https://img.shields.io/badge/Allure_Report-Live_Results-brightgreen.svg)](https://maalvrei.github.io/playwright-cucumber-java/)
+
 Este repositorio contiene un framework de automatización de pruebas híbrido, diseñado para validar tanto el **Frontend (UI)** como el **Backend (API)**. Está construido con las mejores prácticas de la industria, aplicando el patrón de diseño **Page Object Model (POM)** y **Behavior-Driven Development (BDD)**.
+
+👉 **[Haz clic aquí para ver el Reporte de Pruebas Interactivo (Allure) en vivo](https://maalvrei.github.io/playwright-cucumber-java/)**
 
 ## 🛠️ Stack Tecnológico
 
@@ -9,7 +13,7 @@ Este repositorio contiene un framework de automatización de pruebas híbrido, d
 * **Framework BDD:** Cucumber (Alineado v7.15.0)
 * **Datos Dinámicos:** Datafaker (Data-Driven Testing)
 * **Reportería Visual:** Allure Report
-* **CI/CD Pipeline:** Jenkins (Dockerizado)
+* **CI/CD Pipeline:** GitHub Actions (Serverless)
 * **Motor & Gestor:** JUnit 5 / Maven / Google Gson
 
 ## 📐 Arquitectura y Patrones de Diseño
@@ -19,7 +23,7 @@ El proyecto está estructurado para ser altamente escalable y mantenible:
 * **BDD (Gherkin):** Casos de prueba escritos en lenguaje natural (español) dentro de la carpeta `features`.
 * **Step Definitions:** Conexión modular entre los pasos en Gherkin y las acciones de Playwright (`steps`).
 * **Generación de Datos Dinámicos:** Integración de Datafaker para evitar el hardcodeo de datos en las peticiones API y evitar falsos positivos en BD.
-* **Infraestructura como Código:** Integración lista mediante `Jenkinsfile` para despliegues automatizados.
+* **Infraestructura como Código:** Integración lista mediante `.github/workflows/ci-pipeline.yml` para despliegues automatizados en la nube.
 
 ## 🧪 Tipos de Pruebas Implementadas
 
@@ -30,6 +34,9 @@ El proyecto está estructurado para ser altamente escalable y mantenible:
 ## 📁 Estructura del Proyecto
 
 ```text
+.github/
+ └── workflows/
+      └── ci-pipeline.yml        # Pipeline de CI/CD (GitHub Actions)
 src/
  ├── main/
  └── test/
@@ -40,7 +47,6 @@ src/
       └── resources/
            ├── features/         # Archivos de pruebas en Gherkin (.feature)
            └── allure.properties # Configuración de reportería
-Jenkinsfile                      # Pipeline de CI/CD declarativo
 ```
 
 ## 💻 Cómo ejecutar el proyecto localmente (Para Evaluadores)
@@ -57,7 +63,7 @@ Si estás evaluando el proyecto desde una distribución de Linux limpia, ejecuta
    ```
 2. Clona el repositorio y entra al directorio:
    ```bash
-   git clone https://github.com/maalvrei/playwright-cucumber-java.git
+   git clone [https://github.com/maalvrei/playwright-cucumber-java.git](https://github.com/maalvrei/playwright-cucumber-java.git)
    cd playwright-cucumber-java
    ```
 3. Descarga los binarios de los navegadores de Playwright y sus dependencias del sistema operativo:
@@ -78,7 +84,7 @@ Una vez tengas las herramientas listas, abre tu terminal (PowerShell o CMD) y si
 
 1. Clona el repositorio y entra al directorio:
    ```bash
-   git clone https://github.com/maalvrei/playwright-cucumber-java.git
+   git clone [https://github.com/maalvrei/playwright-cucumber-java.git](https://github.com/maalvrei/playwright-cucumber-java.git)
    cd playwright-cucumber-java
    ```
 2. Instala los binarios de los navegadores de Playwright:
@@ -90,11 +96,9 @@ Una vez tengas las herramientas listas, abre tu terminal (PowerShell o CMD) y si
    mvn test
    ```
 
-## 📊 Cómo ver el Reporte Allure en local
+## 📊 Visualización de Resultados (Allure)
 
-Una vez finalizada la ejecución de las pruebas (`mvn test`), puedes generar y abrir el reporte visual interactivo ejecutando:
+El proyecto cuenta con **Integración Continua (CI)**. Cada vez que se realiza un nuevo Push al repositorio, GitHub Actions ejecuta las pruebas automáticamente y publica los resultados.
 
-```bash
-mvn allure:serve
-```
-Esto levantará un servidor local temporal y abrirá automáticamente el informe de resultados en tu navegador predeterminado.
+* 🟢 **Ver resultados online:** [Reporte Allure en vivo](https://maalvrei.github.io/playwright-cucumber-java/)
+* 💻 **Ver resultados en local:** Si ejecutas las pruebas en tu máquina con `mvn test`, puedes generar el reporte visual ejecutando `mvn allure:serve`.
