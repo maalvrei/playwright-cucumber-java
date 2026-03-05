@@ -1,15 +1,17 @@
 name: CI Automation Pipeline
 
-# ¿Cuándo se ejecuta esto? Cada vez que hagas un Push a la rama master o main
 on:
   push:
     branches: [ "master", "main" ]
   pull_request:
     branches: [ "master", "main" ]
 
+# Permisos para que el bot pueda crear la rama "gh-pages" y subir la web
+permissions:
+  contents: write
+
 jobs:
   test-and-report:
-    # GitHub nos presta un servidor Ubuntu nuevecito
     runs-on: ubuntu-latest
 
     steps:
@@ -21,27 +23,44 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: 'maven' # Guarda las librerías en caché para ir más rápido
+          cache: 'maven'
 
       - name: 📦 Instalar Dependencias de Maven
         run: mvn clean install -DskipTests
 
       - name: 🎭 Instalar Navegadores de Playwright
-        # En Ubuntu de GitHub sí podemos usar --with-deps sin problema
         run: mvn exec:java -e -D"exec.mainClass"="com.microsoft.playwright.CLI" -D"exec.args"="install --with-deps"
 
       - name: 🚀 Ejecutar Pruebas E2E y API
         run: mvn test
         env:
-          # Mantenemos esto por si acaso, como buena práctica
-          PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS: true
-        # continue-on-error evita que el pipeline explote y se pare si un test falla
+          PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS: 'true'
         continue-on-error: true
 
-      - name: 📊 Guardar Resultados de Allure
-        uses: actions/upload-artifact@v4
-        if: always() # Se ejecuta siempre, aunque los tests fallen
+      # === MAGIA DE GITHUB PAGES (REPORTE PÚBLICO) ===
+
+      - name: 📂 Obtener historial previo de Allure
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
         with:
-          name: allure-results
-          path: target/allure-results
-          retention-days: 20
+          ref: gh-pages
+          path: gh-pages
+
+      - name: 📊 Generar Reporte Allure (HTML)
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        id: allure-report
+        with:
+          allure_results: target/allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+
+      - name: 🌐 Publicar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
