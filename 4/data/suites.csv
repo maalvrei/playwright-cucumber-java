@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","3249","Bloqueo de login usando usuario real de la API","","Thu Mar 05 10:22:45 UTC 2026","passed","Thu Mar 05 10:22:48 UTC 2026","","Login Híbrido con API y UI","Bloqueo de login usando usuario real de la API",""
+"","2644","Usuario intenta hacer login con credenciales inválidas","","Thu Mar 05 10:22:48 UTC 2026","passed","Thu Mar 05 10:22:51 UTC 2026","","Login en SauceDemo","Usuario intenta hacer login con credenciales inválidas",""
+"","2293","Crear un usuario aleatorio correctamente en el sistema","","Thu Mar 05 10:22:43 UTC 2026","passed","Thu Mar 05 10:22:45 UTC 2026","","Gestión de usuarios vía API","Crear un usuario aleatorio correctamente en el sistema",""
