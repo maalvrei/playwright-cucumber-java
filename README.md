@@ -23,7 +23,7 @@ El proyecto está estructurado para ser altamente escalable y mantenible:
 * **BDD (Gherkin):** Casos de prueba escritos en lenguaje natural (español) dentro de la carpeta `features`.
 * **Step Definitions:** Conexión modular entre los pasos en Gherkin y las acciones de Playwright (`steps`).
 * **Generación de Datos Dinámicos:** Integración de Datafaker para evitar el hardcodeo de datos en las peticiones API y evitar falsos positivos en BD.
-* **Infraestructura como Código:** Integración lista mediante `.github/workflows/ci-pipeline.yml` para despliegues automatizados en la nube.
+* **Infraestructura Cloud Optimizada (CI/CD):** Integración lista mediante `.github/workflows/ci-pipeline.yml` para despliegues automatizados. Incluye estrategias avanzadas de DevOps como el uso de **Caché** para los binarios de Playwright (reduciendo los tiempos de ejecución) y **disparadores condicionales** (`paths-ignore`) para optimizar el consumo de recursos en la nube.
 
 ## 🧪 Tipos de Pruebas Implementadas
 
