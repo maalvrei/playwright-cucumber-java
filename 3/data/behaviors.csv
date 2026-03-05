@@ -1,0 +1,4 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","","0","Login Híbrido con API y UI","1","0","Bloqueo de login usando usuario real de la API","0"
+"0","","0","Login en SauceDemo","1","0","Usuario intenta hacer login con credenciales inválidas","0"
+"0","","0","Gestión de usuarios vía API","1","0","Crear un usuario aleatorio correctamente en el sistema","0"
