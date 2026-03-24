@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1889","Crear un usuario aleatorio correctamente en el sistema","","Tue Mar 24 19:51:40 UTC 2026","passed","Tue Mar 24 19:51:42 UTC 2026","","Gestión de usuarios vía API","Crear un usuario aleatorio correctamente en el sistema",""
+"","2642","Usuario inicia sesión con credenciales correctas","","Tue Mar 24 19:51:45 UTC 2026","passed","Tue Mar 24 19:51:48 UTC 2026","","Gestión del inventario y carrito en SauceDemo","Usuario inicia sesión con credenciales correctas",""
+"","3174","Añadir un producto al carrito correctamente","","Tue Mar 24 19:51:48 UTC 2026","passed","Tue Mar 24 19:51:51 UTC 2026","","Gestión del inventario y carrito en SauceDemo","Añadir un producto al carrito correctamente",""
+"","2620","Usuario intenta hacer login con credenciales inválidas","","Tue Mar 24 19:51:51 UTC 2026","passed","Tue Mar 24 19:51:54 UTC 2026","","Login en SauceDemo","Usuario intenta hacer login con credenciales inválidas",""
+"","3063","Bloqueo de login usando usuario real de la API","","Tue Mar 24 19:51:42 UTC 2026","passed","Tue Mar 24 19:51:45 UTC 2026","","Login Híbrido con API y UI","Bloqueo de login usando usuario real de la API",""
