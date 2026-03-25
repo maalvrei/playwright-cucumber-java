@@ -1,0 +1,8 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","","0","Pruebas de API en JSONPlaceholder","1","0","Crear un usuario con datos dinámicos (POST)","0"
+"0","","0","Gestión del inventario y carrito en SauceDemo","1","0","Añadir un producto al carrito correctamente","0"
+"0","","0","Gestión del inventario y carrito en SauceDemo","1","0","Usuario inicia sesión con credenciales correctas","0"
+"0","","0","Pruebas de API en JSONPlaceholder","1","0","Eliminar un post existente (DELETE)","0"
+"0","","0","Login Híbrido con API y UI","1","0","Bloqueo de login usando usuario real de la API","0"
+"0","","0","Login en SauceDemo","1","0","Usuario intenta hacer login con credenciales inválidas","0"
+"0","","0","Pruebas de API en JSONPlaceholder","1","0","Obtener un post existente y validar su estructura (GET)","0"

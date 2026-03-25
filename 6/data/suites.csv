@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1705","Crear un usuario con datos dinámicos (POST)","","Wed Mar 25 08:33:19 UTC 2026","passed","Wed Mar 25 08:33:21 UTC 2026","","Pruebas de API en JSONPlaceholder","Crear un usuario con datos dinámicos (POST)",""
+"","3200","Añadir un producto al carrito correctamente","","Wed Mar 25 08:33:28 UTC 2026","passed","Wed Mar 25 08:33:31 UTC 2026","","Gestión del inventario y carrito en SauceDemo","Añadir un producto al carrito correctamente",""
+"","3053","Usuario inicia sesión con credenciales correctas","","Wed Mar 25 08:33:25 UTC 2026","passed","Wed Mar 25 08:33:28 UTC 2026","","Gestión del inventario y carrito en SauceDemo","Usuario inicia sesión con credenciales correctas",""
+"","451","Eliminar un post existente (DELETE)","","Wed Mar 25 08:33:22 UTC 2026","passed","Wed Mar 25 08:33:22 UTC 2026","","Pruebas de API en JSONPlaceholder","Eliminar un post existente (DELETE)",""
+"","3208","Bloqueo de login usando usuario real de la API","","Wed Mar 25 08:33:22 UTC 2026","passed","Wed Mar 25 08:33:25 UTC 2026","","Login Híbrido con API y UI","Bloqueo de login usando usuario real de la API",""
+"","2663","Usuario intenta hacer login con credenciales inválidas","","Wed Mar 25 08:33:31 UTC 2026","passed","Wed Mar 25 08:33:34 UTC 2026","","Login en SauceDemo","Usuario intenta hacer login con credenciales inválidas",""
+"","434","Obtener un post existente y validar su estructura (GET)","","Wed Mar 25 08:33:21 UTC 2026","passed","Wed Mar 25 08:33:21 UTC 2026","","Pruebas de API en JSONPlaceholder","Obtener un post existente y validar su estructura (GET)",""
