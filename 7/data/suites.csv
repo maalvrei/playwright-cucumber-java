@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2728","Añadir un producto al carrito correctamente","","2026-07-11","passed","2026-07-11","","Gestión del inventario y carrito en SauceDemo","Añadir un producto al carrito correctamente",""
+"","511","Crear un usuario con datos dinámicos (POST)","","2026-07-11","passed","2026-07-11","","Pruebas de API en JSONPlaceholder","Crear un usuario con datos dinámicos (POST)",""
+"","2224","Usuario inicia sesión con credenciales correctas","","2026-07-11","passed","2026-07-11","","Gestión del inventario y carrito en SauceDemo","Usuario inicia sesión con credenciales correctas",""
+"","2623","Bloqueo de login usando usuario real de la API","","2026-07-11","passed","2026-07-11","","Login Híbrido con API y UI","Bloqueo de login usando usuario real de la API",""
+"","52","Obtener un post existente y validar su estructura (GET)","","2026-07-11","passed","2026-07-11","","Pruebas de API en JSONPlaceholder","Obtener un post existente y validar su estructura (GET)",""
+"","2216","Usuario intenta hacer login con credenciales inválidas","","2026-07-11","passed","2026-07-11","","Login en SauceDemo","Usuario intenta hacer login con credenciales inválidas",""
+"","61","Eliminar un post existente (DELETE)","","2026-07-11","passed","2026-07-11","","Pruebas de API en JSONPlaceholder","Eliminar un post existente (DELETE)",""
