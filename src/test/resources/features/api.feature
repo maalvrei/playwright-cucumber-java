@@ -17,3 +17,8 @@ Característica: Pruebas de API en JSONPlaceholder
     Dado que la URL base de la API es "https://jsonplaceholder.typicode.com"
     Cuando envío una petición DELETE al endpoint "/posts/1"
     Entonces el código de respuesta de la API debería ser 200
+
+  Escenario: Actualizar un post existente (PUT)
+    Dado que la URL base de la API es "https://jsonplaceholder.typicode.com"
+    Cuando envío una petición PUT al endpoint "/posts/1"
+    Entonces el código de respuesta de la API debería ser 200

@@ -80,6 +80,12 @@ public class ApiSteps {
         response = request.delete(baseUrl + endpoint);
     }
 
+    @Cuando("envío una petición PUT al endpoint {string}")
+    public void envioUnaPeticionPutAlEndpoint(String endpoint) {
+        System.out.println("Enviando PUT a: " + baseUrl + endpoint);
+        response = request.put(baseUrl + endpoint);
+    }
+
     @Entonces("el cuerpo de la respuesta en formato JSON debería contener el atributo {string}")
     public void elCuerpoDeLaRespuestaDeberiaContenerElAtributo(String atributoEsperado) {
         assertTrue(response.text().contains("\"" + atributoEsperado + "\":"),
