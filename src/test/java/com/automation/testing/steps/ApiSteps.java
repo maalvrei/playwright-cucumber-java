@@ -86,6 +86,26 @@ public class ApiSteps {
         response = request.put(baseUrl + endpoint);
     }
 
+    @Cuando("envío una petición PATCH al endpoint {string} con el título {string}")
+    public void envioUnaPeticionPatchAlEndpointConElTitulo(String endpoint, String nuevoTitulo) {
+        System.out.println("Enviando PATCH a: " + baseUrl + endpoint);
+        String patchBody = "{\n" +
+                "    \"title\": \"" + nuevoTitulo + "\"\n" +
+                "}";
+        response = request.patch(baseUrl + endpoint,
+                RequestOptions.create()
+                        .setHeader("Content-Type", "application/json")
+                        .setData(patchBody)
+        );
+    }
+
+    @Y("la respuesta de la API debería contener el texto {string}")
+    public void laRespuestaDeLaApiDeberiaContenerElTexto(String textoEsperado) {
+        assertTrue(response.text().contains(textoEsperado),
+                "La respuesta no contiene el texto: " + textoEsperado);
+    }
+
+
     @Entonces("el cuerpo de la respuesta en formato JSON debería contener el atributo {string}")
     public void elCuerpoDeLaRespuestaDeberiaContenerElAtributo(String atributoEsperado) {
         assertTrue(response.text().contains("\"" + atributoEsperado + "\":"),

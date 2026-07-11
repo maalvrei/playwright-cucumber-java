@@ -9,6 +9,9 @@ public class InventoryPage {
     // Declaramos los localizadores
     private final Locator tituloInventario;
     private final Locator botonAnadirMochila;
+    private final Locator botonEliminarMochila;
+    private final Locator botonMenuLateral;
+    private final Locator enlaceLogout;
     private final Locator iconoCarrito;
 
     // Constructor: Inicializa la página y mapea los elementos web
@@ -18,6 +21,9 @@ public class InventoryPage {
         // Mapeo de selectores CSS (identificadores de SauceDemo)
         this.tituloInventario = page.locator(".title");
         this.botonAnadirMochila = page.locator("[data-test='add-to-cart-sauce-labs-backpack']");
+        this.botonEliminarMochila = page.locator("[data-test='remove-sauce-labs-backpack']");
+        this.botonMenuLateral = page.locator("#react-burger-menu-btn");
+        this.enlaceLogout = page.locator("#logout_sidebar_link");
         this.iconoCarrito = page.locator(".shopping_cart_badge");
     }
 
@@ -36,6 +42,21 @@ public class InventoryPage {
      */
     public void anadirMochilaAlCarrito() {
         botonAnadirMochila.click();
+    }
+
+    /**
+     * Hace clic en el botón de eliminar del carrito de la mochila específica.
+     */
+    public void eliminarMochilaDelCarrito() {
+        botonEliminarMochila.click();
+    }
+
+    /**
+     * Cierra la sesión del usuario usando el menú lateral.
+     */
+    public void logout() {
+        botonMenuLateral.click();
+        enlaceLogout.click();
     }
 
     /**
