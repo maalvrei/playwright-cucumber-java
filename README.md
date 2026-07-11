@@ -22,13 +22,14 @@ El proyecto está estructurado para ser altamente escalable y mantenible:
 * **Page Object Model (POM):** Separación estricta entre la lógica de las pruebas y los localizadores visuales (`pages`).
 * **BDD (Gherkin):** Casos de prueba escritos en lenguaje natural (español) dentro de la carpeta `features`.
 * **Step Definitions:** Conexión modular entre los pasos en Gherkin y las acciones de Playwright (`steps`).
+* **Optimización de Navegador (Ciclo de Vida):** Reutiliza una única instancia de `Browser` para toda la suite y aísla cada escenario con nuevos `BrowserContext` y `Page` independientes, mejorando la velocidad de ejecución.
 * **Generación de Datos Dinámicos:** Integración de Datafaker para evitar el hardcodeo de datos en las peticiones API y evitar falsos positivos en BD.
 * **Infraestructura Cloud Optimizada (CI/CD):** Integración lista mediante `.github/workflows/ci-pipeline.yml` para despliegues automatizados. Incluye estrategias avanzadas de DevOps como el uso de **Caché** para los binarios de Playwright (reduciendo los tiempos de ejecución) y **disparadores condicionales** (`paths-ignore`) para optimizar el consumo de recursos en la nube.
 
 ## 🧪 Tipos de Pruebas Implementadas
 
-1. 🌐 **Pruebas UI (Frontend):** Navegación automatizada y validación de elementos en la web de pruebas *SauceDemo*.
-2. ⚙️ **Pruebas API (Backend):** Peticiones HTTP (GET/POST) a *JSONPlaceholder* con inyección de cargas útiles (payloads) generadas de forma aleatoria.
+1. 🌐 **Pruebas UI (Frontend):** Navegación automatizada y validación de elementos en la web de pruebas *SauceDemo*. Incluye inicio de sesión correcto, validación de errores con credenciales inválidas y control de usuarios bloqueados.
+2. ⚙️ **Pruebas API (Backend):** Peticiones HTTP (GET/POST/PUT/DELETE) a *JSONPlaceholder* con inyección de cargas útiles (payloads) generadas de forma aleatoria.
 3. 🧬 **Pruebas Híbridas (E2E Avanzado):** Extracción de datos reales desde la API (Parseo de JSON) e inyección de esos datos en la interfaz web durante la misma ejecución para realizar *Negative Testing*.
 
 ## 📁 Estructura del Proyecto
